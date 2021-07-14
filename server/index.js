@@ -49,7 +49,6 @@ function obtenerPropiedades(callback, detalles){
             respuesta.error = true;
             respuesta.errorMessage = err;
         }
-
         
 
         callback(respuesta);
@@ -84,6 +83,7 @@ function getOptions(callback){
     let ciudades = [];
     let tipos = [];
     let response = {};
+
 
     obtenerPropiedades((respuesta)=>{
         if(!respuesta.error){

@@ -3,7 +3,7 @@ body {
   background-color: #bdc3c7;
 }
 
-nav div > h4 {
+nav div > h1 {
   margin: 0;
   padding-top: .5em;
 }
@@ -51,5 +51,11 @@ div.lista {
 @media (max-width: 600px) {
   .panel{
     position: relative;
+  }
+
+  .propiedad-item{
+    background-image: url("./img/bakcground-small.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }

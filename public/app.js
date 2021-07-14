@@ -1,4 +1,4 @@
-const admin = {
+const Busqueda = {
   iniciarBusqueda: function name(personalizada) {
     
     //se realiza peticion de la busqueda
@@ -38,10 +38,10 @@ const admin = {
 
       let template = `
         <div class="card horizontal">
-          <div class="card-image">
+          <div class="card-image hide-on-small-only">
             <img src="img/home.jpg">
           </div>
-          <div class="card-stacked">
+          <div class="card-stacked propiedad-item">
             <div class="card-content">
               <div>
                 <b>Direccion: </b>${propiedad.Direccion}<p></p>
@@ -70,15 +70,17 @@ const admin = {
   }
 }
 
+//Document ready
 $(function() {
   //Inicializador del elemento Slider
   iniciarSlider();
 
-  loadOptions();
+  //se cargan desde el servidor las opciones de busqueda personalizada
+  cargarOpciones();
 
-  //click buscar
+  //se signa click al iniciar busqueda mandando si es personalizada
   $("#buscar").click(function(){
-    admin.iniciarBusqueda($("#checkPersonalizada").is(":checked"));
+    Busqueda.iniciarBusqueda($("#checkPersonalizada").is(":checked"));
   });
 
 })
@@ -125,7 +127,7 @@ function setSearch() {
   })
 }
 
-function loadOptions(){
+function cargarOpciones(){
   $.ajax({
     url: "http://localhost:443/getOptions",
     type: "GET",
